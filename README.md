@@ -47,7 +47,7 @@ docker-challenge/
 ```bash
 # Clone the repo
 git clone https://github.com/JaydenMukasa1/Flask-app.git
-cd docker-challenge
+cd Flask-app
 
 # Build and start both containers
 docker compose up --build
