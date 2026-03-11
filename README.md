@@ -46,7 +46,7 @@ docker-challenge/
 
 ```bash
 # Clone the repo
-git clone https://github.com/your-username/docker-challenge.git
+git https://github.com/JaydenMukasa1/Flask-app.git
 cd docker-challenge
 
 # Build and start both containers
