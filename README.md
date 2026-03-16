@@ -9,7 +9,7 @@ A multi-container application built with **Flask** and **Redis**, orchestrated u
 The Flask app exposes two routes:
 
 | Route | Description |
-|-------|-------------|
+| --- | --- |
 | `/` | Returns a welcome message |
 | `/count` | Increments and displays a persistent visit counter stored in Redis |
 
@@ -27,9 +27,8 @@ The visit count persists across requests because it is stored in Redis — not i
 ---
 
 ## Project Structure
-
 ```
-docker-challenge/
+Flask-app/
 ├── app.py                 # Flask app with / and /count routes
 ├── requirements.txt       # Python dependencies (flask, redis)
 ├── Dockerfile             # Flask container build instructions
@@ -43,8 +42,7 @@ docker-challenge/
 ## Running the App
 
 **Prerequisites:** Docker and Docker Compose installed.
-
-```bash
+```
 # Clone the repo
 git clone https://github.com/JaydenMukasa1/Flask-app.git
 cd Flask-app
@@ -56,8 +54,7 @@ docker compose up --build
 The app will be available at `http://localhost:5001`.
 
 To stop the app:
-
-```bash
+```
 docker compose down
 ```
 
