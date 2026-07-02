@@ -16,17 +16,6 @@ Python / Flask · Redis · Docker · Docker Compose
 
 ---
 
-## Project Structure
-```
-Flask-app/
-├── app.py                 # Flask app with / and /count routes
-├── requirements.txt       # Python dependencies (flask, redis)
-├── Dockerfile              # Flask container build instructions
-├── redis/
-│   └── Dockerfile         # Redis container (FROM redis)
-└── docker-compose.yml      # Orchestrates both services
-```
-
 ---
 
 ## Running the App
@@ -42,10 +31,6 @@ App runs at `http://localhost:5001`. Stop with `docker compose down`.
 
 ---
 
-## Example Output
-```
-GET /        → Welcome to my Flask app!
-GET /count   → Visit count: 1, 2, 3...
 ```
 
 ---
