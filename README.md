@@ -1,24 +1,17 @@
 # Flask + Redis Multi-Container Docker App
-
 Flask + Redis app containerised with Docker Compose, using Docker's internal networking to connect services.
 
 ---
 
 ## What It Does
-
-The Flask app exposes two routes:
-
 | Route | Description |
 | --- | --- |
 | `/` | Returns a welcome message |
-| `/count` | Increments and displays a persistent visit counter stored in Redis |
-
-The visit count persists across requests because it is stored in Redis — not in memory. Each time `/count` is hit, Redis atomically increments the value.
+| `/count` | Increments and returns a visit counter, stored in Redis so it persists across requests |
 
 ---
 
 ## Tech Stack
-
 Python / Flask · Redis · Docker · Docker Compose
 
 ---
@@ -28,54 +21,37 @@ Python / Flask · Redis · Docker · Docker Compose
 Flask-app/
 ├── app.py                 # Flask app with / and /count routes
 ├── requirements.txt       # Python dependencies (flask, redis)
-├── Dockerfile             # Flask container build instructions
+├── Dockerfile              # Flask container build instructions
 ├── redis/
 │   └── Dockerfile         # Redis container (FROM redis)
-└── docker-compose.yml     # Orchestrates both services
+└── docker-compose.yml      # Orchestrates both services
 ```
 
 ---
 
 ## Running the App
+Requires Docker and Docker Compose.
 
-**Prerequisites:** Docker and Docker Compose installed.
 ```
-# Clone the repo
 git clone https://github.com/JaydenMukasa1/Flask-app.git
 cd Flask-app
-
-# Build and start both containers
 docker compose up --build
 ```
 
-The app will be available at `http://localhost:5001`.
-
-To stop the app:
-```
-docker compose down
-```
+App runs at `http://localhost:5001`. Stop with `docker compose down`.
 
 ---
 
 ## Example Output
-
-**`GET /`**
 ```
-Welcome to my Flask app!
-```
-
-**`GET /count`** (increments on each visit)
-```
-Visit count: 1
-Visit count: 2
-Visit count: 3
+GET /        → Welcome to my Flask app!
+GET /count   → Visit count: 1, 2, 3...
 ```
 
 ---
 
 ## How It Works
-
 - Docker Compose spins up two services: `flask-app` and `redis`
-- Both containers share a Docker network, allowing Flask to reach Redis using the service name `redis` as the hostname
-- The `depends_on` directive ensures Redis starts before the Flask app
-- `r.incr('count')` atomically increments the counter in Redis, creating the key automatically on first visit
+- Both share a Docker network, so Flask reaches Redis via the hostname `redis`
+- `depends_on` ensures Redis starts first
+- `r.incr('count')` atomically increments the counter, creating the key on first visit
