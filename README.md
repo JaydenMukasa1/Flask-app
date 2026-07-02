@@ -16,8 +16,6 @@ Python / Flask · Redis · Docker · Docker Compose
 
 ---
 
----
-
 ## Running the App
 Requires Docker and Docker Compose.
 
