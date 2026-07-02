@@ -19,10 +19,7 @@ The visit count persists across requests because it is stored in Redis — not i
 
 ## Tech Stack
 
-- **Python / Flask** — Web framework
-- **Redis** — In-memory key-value store
-- **Docker** — Containerisation
-- **Docker Compose** — Multi-container orchestration
+Python / Flask · Redis · Docker · Docker Compose
 
 ---
 
