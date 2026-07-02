@@ -1,6 +1,6 @@
 # Flask + Redis Multi-Container Docker App
 
-A multi-container application built with **Flask** and **Redis**, orchestrated using **Docker Compose**. This project demonstrates containerisation of a Python web application with a separate database service, connected via Docker's internal networking.
+Flask + Redis app containerised with Docker Compose, using Docker's internal networking to connect services.
 
 ---
 
