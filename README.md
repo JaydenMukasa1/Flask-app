@@ -29,10 +29,6 @@ App runs at `http://localhost:5001`. Stop with `docker compose down`.
 
 ---
 
-```
-
----
-
 ## How It Works
 - Docker Compose spins up two services: `flask-app` and `redis`
 - Both share a Docker network, so Flask reaches Redis via the hostname `redis`
